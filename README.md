@@ -116,8 +116,9 @@ To see all options along with descriptions, run
 ## Output
 
 After finding an optimal route, the program generates an HTML file
-`index.html` at the root of the repository. The page first displays a
-route summary, which includes the following information:
+`index.html` at the root of the repository. An example is shown
+[here](https://mwiens91.github.io/sm64-route-optimizer/). The page first
+displays a route summary, which includes the following information:
 
 - the sum of star times for the route. This will shorter than the actual
   route time, since travel time is not factored into the sum
