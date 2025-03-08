@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Super Mario 64 Route Optimizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  </head>
+  <body>
+    <div class="container">
+      <div class="bg-primary-subtle text-primary-emphasis rounded px-3 py-4 my-3">
+        <h1 class="display-3">Super Mario 64 Route Optimizer</h1>
+      </div>
+      <div class="bg-secondary-subtle text-secondary-emphasis rounded px-3 py-3">
+        <div class="fw-bold">Route summary:</div>
+        <div>Sum of star times: 48 minutes 26.80 seconds</div>
+        <div>Lobby: 25 stars</div>
+        <div>Courtyard: 4 stars</div>
+        <div>Basement: 19 stars</div>
+        <div>Upstairs: 15 stars</div>
+        <div>Tippy: 7 stars</div>
+        <div class="mt-3">Generated on 2025-02-27 17:18 PST-0800</div>
+      </div>
+      <div class="mt-3 px-1">
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Bob-omb Battlefield</span><span class="badge rounded-pill text-bg-secondary">4 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Big Bob-omb on the Summit</td>
+                  <td class="text-end">67.6</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Footrace with Koopa the Quick</td>
+                  <td class="text-end">100.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Shoot to the Island in the Sky</td>
+                  <td class="text-end">32.6</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>4</td>
+                  <td>Find the 8 Red Coins</td>
+                  <td class="text-end">94.0</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>5</td>
+                  <td>Mario Wings to the Sky</td>
+                  <td class="text-end">85.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Behind Chain Chomp’s Gate</td>
+                  <td class="text-end">40.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Whomp’s Fortress</span><span class="badge rounded-pill text-bg-secondary">5 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Chip off Whomp’s Block</td>
+                  <td class="text-end">46.4</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>To the Top of the Fortress</td>
+                  <td class="text-end">27.9</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Shoot into the Wild Blue</td>
+                  <td class="text-end">24.0</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>4</td>
+                  <td>Red Coins on the Floating Isle</td>
+                  <td class="text-end">80.8</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Fall onto the Caged Island</td>
+                  <td class="text-end">22.6</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Blast Away the Wall</td>
+                  <td class="text-end">56.0</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>7</td>
+                  <td>Red Coins on the Floating Isle + 100 Coins Star</td>
+                  <td class="text-end">171.4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Jolly Roger Bay</span><span class="badge rounded-pill text-bg-secondary">4 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Plunder in the Sunken Ship</td>
+                  <td class="text-end">98.3</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Can the Eel Come out and Play?</td>
+                  <td class="text-end">44.9</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Treasure of the Ocean Cave</td>
+                  <td class="text-end">66.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Blast to the Stone Pillar</td>
+                  <td class="text-end">23.0</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>6</td>
+                  <td>Through the Jet Stream</td>
+                  <td class="text-end">54.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Cool, Cool Mountain</span><span class="badge rounded-pill text-bg-secondary">7 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Slip Slidin’ Away</td>
+                  <td class="text-end">43.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Li’l Penguin Lost</td>
+                  <td class="text-end">32.8</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Big Penguin Race</td>
+                  <td class="text-end">59.9</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>4</td>
+                  <td>Frosty Slide for 8 Red Coins</td>
+                  <td class="text-end">103.2</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Snowman’s Lost his Head</td>
+                  <td class="text-end">41.9</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Wall Kicks will Work</td>
+                  <td class="text-end">30.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>7</td>
+                  <td>Frosty Slide for 8 Red Coins + 100 Coins Star</td>
+                  <td class="text-end">164.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Big Boo’s Haunt</span><span class="badge rounded-pill text-bg-secondary">4 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Go on a Ghost Hunt</td>
+                  <td class="text-end">105.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Ride Big Boo’s Merry-Go-Round</td>
+                  <td class="text-end">56.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Secret of the Haunted Books</td>
+                  <td class="text-end">33.1</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>4</td>
+                  <td>Seek the 8 Red Coins</td>
+                  <td class="text-end">95.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Big Boo’s Balcony</td>
+                  <td class="text-end">58.3</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>6</td>
+                  <td>Eye to Eye in the Secret Room</td>
+                  <td class="text-end">61.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Hazy Maze Cave</span><span class="badge rounded-pill text-bg-secondary">4 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Swimming Beast in the Cavern</td>
+                  <td class="text-end">54.6</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>3</td>
+                  <td>Metal-Head Mario Can Move!</td>
+                  <td class="text-end">58.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Navigating the Toxic Maze</td>
+                  <td class="text-end">51.7</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>A-Maze-ing Emergency Exit</td>
+                  <td class="text-end">64.8</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Watch for the Rolling Rocks</td>
+                  <td class="text-end">30.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Lethal Lava Land</span><span class="badge rounded-pill text-bg-secondary">6 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Boil the Big Bully</td>
+                  <td class="text-end">30.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Bully the Bullies</td>
+                  <td class="text-end">41.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>8-Coin Puzzle with 15 Pieces</td>
+                  <td class="text-end">23.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Red-Hot Log Rolling</td>
+                  <td class="text-end">27.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Hot-Foot-It into the Volcano</td>
+                  <td class="text-end">48.3</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Elevator Tour in the Volcano</td>
+                  <td class="text-end">33.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Shifting Sand Land</span><span class="badge rounded-pill text-bg-secondary">3 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>In the Talons of the Big Bird</td>
+                  <td class="text-end">48.8</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Shining Atop the Pyramid</td>
+                  <td class="text-end">31.3</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Inside the Ancient Pyramid</td>
+                  <td class="text-end">69.6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Dire, Dire Docks</span><span class="badge rounded-pill text-bg-secondary">2 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Board Bowser’s Sub</td>
+                  <td class="text-end">0.0</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>2</td>
+                  <td>Chests in the Current</td>
+                  <td class="text-end">70.8</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>4</td>
+                  <td>Through the Jet Stream</td>
+                  <td class="text-end">73.8</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>The Manta Ray’s Reward</td>
+                  <td class="text-end">20.4</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>6</td>
+                  <td>Collect the Caps</td>
+                  <td class="text-end">63.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Snowman’s Land</span><span class="badge rounded-pill text-bg-secondary">4 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td></td>
+                  <td>1</td>
+                  <td>Snowman’s Big Head</td>
+                  <td class="text-end">76.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Chill with the Bully</td>
+                  <td class="text-end">28.2</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>In the Deep Freeze</td>
+                  <td class="text-end">11.9</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Whirl from the Freezing Pond</td>
+                  <td class="text-end">19.7</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Shell Shreddin’ for 8 Red Coins</td>
+                  <td class="text-end">57.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Wet-Dry World</span><span class="badge rounded-pill text-bg-secondary">3 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Shocking Arrow Lifts!</td>
+                  <td class="text-end">18.5</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>Top O’ The Town</td>
+                  <td class="text-end">36.3</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Express Elevators–Hurry Up!</td>
+                  <td class="text-end">64.2</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>6</td>
+                  <td>Quick Race through Downtown</td>
+                  <td class="text-end">66.8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Tall, Tall Mountain</span><span class="badge rounded-pill text-bg-secondary">5 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Scale the Mountain</td>
+                  <td class="text-end">64.4</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>2</td>
+                  <td>Mystery of the Monkey Cage</td>
+                  <td class="text-end">120.6</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Scary ‘Shrooms, Red Coins</td>
+                  <td class="text-end">69.4</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Mysterious Mountainside</td>
+                  <td class="text-end">22.5</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Breathtaking View from Bridge</td>
+                  <td class="text-end">60.3</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Blast to the Lonely Mushroom</td>
+                  <td class="text-end">25.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Tiny-Huge Island</span><span class="badge rounded-pill text-bg-secondary">2 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Pluck the Piranha Flower</td>
+                  <td class="text-end">47.2</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>The Tip Top of the Huge Island</td>
+                  <td class="text-end">37.6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Tick Tock Clock</span><span class="badge rounded-pill text-bg-secondary">4 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>Roll into the Cage</td>
+                  <td class="text-end">31.6</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>The Pit and the Pendulums</td>
+                  <td class="text-end">45.6</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>Get a Hand</td>
+                  <td class="text-end">37.1</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Stop Time for Red Coins</td>
+                  <td class="text-end">38.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Rainbow Ride</span><span class="badge rounded-pill text-bg-secondary">2 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Swingin’ in the Breeze</td>
+                  <td class="text-end">42.7</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Tricky Triangles!</td>
+                  <td class="text-end">43.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center w-100">
+<span class="badge text-bg-secondary">Peach’s Castle Secret Stars</span><span class="badge rounded-pill text-bg-secondary">11 stars</span>            </h4>
+            <table class="table">
+<colgroup><col><col width="6%"><col width="100%"><col></colgroup>              <tbody>
+                <tr>
+                  <td>✓</td>
+                  <td>1</td>
+                  <td>The Princess’s Secret Slide</td>
+                  <td class="text-end">32.5</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>2</td>
+                  <td>The Princess’s Secret Slide (Return)</td>
+                  <td class="text-end">32.5</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>3</td>
+                  <td>The Secret Aquarium</td>
+                  <td class="text-end">56.7</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>4</td>
+                  <td>Toad’s First Star</td>
+                  <td class="text-end">0.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>5</td>
+                  <td>Toad’s Second Star</td>
+                  <td class="text-end">0.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>6</td>
+                  <td>Toad’s Third Star</td>
+                  <td class="text-end">0.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>7</td>
+                  <td>MIPS Bunny Chase</td>
+                  <td class="text-end">48.7</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>8</td>
+                  <td>MIPS Bunny Chase (Again)</td>
+                  <td class="text-end">48.7</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>9</td>
+                  <td>Tower of the Wing Cap</td>
+                  <td class="text-end">37.3</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>10</td>
+                  <td>Cavern of the Metal Cap</td>
+                  <td class="text-end">102.8</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>11</td>
+                  <td>Vanish Cap Under the Moat</td>
+                  <td class="text-end">113.2</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>13</td>
+                  <td>Bowser in the Dark World</td>
+                  <td class="text-end">0.0</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>14</td>
+                  <td>Bowser in the Fire Sea</td>
+                  <td class="text-end">0.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
