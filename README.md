@@ -391,18 +391,18 @@ My personal opinion is that this limitation is a non-issue.
 ### 100 coin combined stars can't have unique prerequisites
 
 Suppose on Bob-omb Battlefield that for the 8 red coin star you don't
-need the wing cap, but for the 100 coin combined star—combined with the
-8 red coin star—you need the wing cap. With the current implementation
-of prerequisite relationships, you can't have different prerequisites
-for regular course stars and their 100 coin combined star alternatives:
-all 100 coin combined stars share the prerequisites of the regular
-course star they are combined with.
+need the wing cap, but for the 100 coin combined star combined with the
+8 red coin star you do need the wing cap. With the current
+implementation of prerequisite relationships, you can't have different
+prerequisites for regular course stars and their 100 coin combined star
+alternatives: all 100 coin combined stars share the prerequisites of the
+regular course star they are combined with.
 
 I've given this limitation quite a bit of thought. The algorithm would
 need to be modified. In the
 [first step of the algorithm](#the-first-step), you would need to
-iterate over all special stars—not just regular course stars and castle
-stars which are also special stars—and remove the recursive step that
+iterate over all special stars—thus including all 100 coin combined
+stars which are special stars—and remove the recursive step that
 optionally includes a star's 100 coin combined star alternative (since
 these are now in the array being iterated over). The topological sort
 would also need to be modified, since a star would have multiple
@@ -410,12 +410,12 @@ prerequisites it could use. This is all possible though.
 
 The real challenge is designing the configuration file in an elegant way
 that avoids excessive complexity and redundancy. For example, one
-approach involves listing prerequisites for each 100 coin combined star
-separately from the star it is combined with. In the worst case, this
-adds 15 lines to the configuration file that are nearly identical to 15
-other lines. And those lines will need to stay nearly identical—so when
-you change one of the lines, you might need to make the same changes to
-the other line. It's pretty gross, and I haven't come up with ways of
+approach involves listing prerequisites for 100 coin combined stars
+separately from the stars they are combined with. In the worst case,
+this adds 15 lines to the configuration file that are nearly identical
+to 15 other lines. And those lines will need to stay nearly identical—so
+when you change one of the lines, you also might need to change the
+other line. It's pretty gross, and I haven't come up with ways of
 circumventing this limitation that don't involve at least *something*
 gross.
 
@@ -431,52 +431,51 @@ optimizer. There are two good options for this I've thought of:
 Both options are simple in terms of logic and configuration. However,
 the computational cost is significant. All of these approaches
 algorithmically involve partitioning courses into either being included
-or excluded and then running the existing algorithm on each possible
+or excluded and running the existing algorithm using each possible
 partitioning scheme. This increases running time by a factor of $2^{15}
 \approx 33000$. Given that the current running time is typically a few
-seconds, this would extend it to around 2 days.
+seconds, this would extend runtime to around 2 days.
 
-However, the optimizer is well-suited to parallel processing, since
+However, the optimizer is well-suited for parallel processing, since
 instances of the optimization algorithm do not need to interact and can
 use independent sets of data. This is something to explore in the
 future.
 
 ## Advice
 
-This section contains advice I wanted to include after the previous
-subsection about travel times.
+This section contains advice related to travel times.
 
 ### Factoring in travel time for "Vanish Cap Under the Moat"
 
 I discussed previously how travel time between courses isn't
 implemented. However, since the vanish cap star "Vanish Cap Under the
 Moat" is the only star on its stage and reaching the stage takes a
-*long* time, you can manually account for travel time by adding the time
-it takes to get to the stage to the time it takes to get the star in the
-configuration file.
+*long* time, you can manually account for travel time by adding travel
+time to the star time in the configuration file.
 
 ### MIPS is a menace
 
 The MIPS star becomes available in the basement at 15 stars and again at
-50 stars. If you're already in the basement with 50 stars, reaching MIPS
-to obtain the second star is quick. However, if you're already upstairs
-before reaching 50 stars, travel time can be significant. In this case,
+50 stars. The second MIPS star that appears at 50 can be problematic. If
+at 50 stars you're already in the basement, reaching MIPS is quick.
+However, if at 50 stars you're already upstairs, travel time to reach
+MIPS can be significant. To reach MIPS and get back where you were,
 you'd need to enter a course, exit the course through the start menu to
 return to the lobby, walk downstairs, capture MIPS, enter another
-course, exit again, and head back upstairs. Depending on your speed,
-this can take around 30 seconds.
+course, exit again through the menu, and head back upstairs. Depending
+on your speed, this can take close to 30 seconds or longer.
 
-The optimizer may generate a route that requires you to go back
-downstairs to get MIPS after you've already left the basement. In this
-case, it may be useful to compare the route time with an alternative route that
-ensures you can capture MIPS before leaving the basement. To do this use
-the flag described in
+The optimizer may generate a route requiring you to return downstairs
+for MIPS after you've already left the basement. In this case, it may be
+useful to compare the route time with an alternative route that ensures
+you can capture MIPS before leaving the basement. To do this, you can
+use the flag described in
 [Limiting upper level stars](#limiting-upper-level-stars). Note,
 however, that limiting the number of upper level stars to 19 isn't
-foolproof: for example, you could have a case where the alternative
-route contains exactly 50 non-upper level stars, but one of those is the
-sixth Jolly Roger Bay star "Through the Jet Stream". This still requires
-you to leave the basement and does not solve the issue. In such cases,
-you'd need to adjust the limit further—for example, to 18 upper-level
-stars.
+foolproof: for example, you could have an alternative route containing
+exactly 50 non-upper level stars, with one of the stars being the sixth
+Jolly Roger Bay star "Through the Jet Stream". This still requires you
+to leave the basement before capturing MIPS and does not solve the
+issue. In such cases, you'd need to adjust the limit further—for
+example, to 18 upper-level stars.
 
