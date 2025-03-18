@@ -464,7 +464,7 @@ before reaching 50 stars, travel time can be significant. In this case,
 you'd need to enter a course, exit the course through the start menu to
 return to the lobby, walk downstairs, capture MIPS, enter another
 course, exit again, and head back upstairs. Depending on your speed,
-this can take around 30 seconds
+this can take around 30 seconds.
 
 The optimizer may generate a route that requires you to go back
 downstairs to get MIPS after you've already left the basement. In this
