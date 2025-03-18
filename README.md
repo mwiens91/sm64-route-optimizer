@@ -456,14 +456,14 @@ time to the star time in the configuration file.
 ### MIPS is a menace
 
 The MIPS star becomes available in the basement at 15 stars and again at
-50 stars. The second MIPS star that appears at 50 can be problematic. If
-at 50 stars you're already in the basement, reaching MIPS is quick.
-However, if at 50 stars you're already upstairs, travel time to reach
-MIPS can be significant. To reach MIPS and get back where you were,
-you'd need to enter a course, exit the course through the start menu to
-return to the lobby, walk downstairs, capture MIPS, enter another
-course, exit again through the menu, and head back upstairs. Depending
-on your speed, this can take close to 30 seconds or longer.
+50 stars. The second MIPS star that appears at 50 stars can be
+problematic. If at 50 stars you're already in the basement, reaching
+MIPS is quick. However, if at 50 stars you're already upstairs, travel
+time to reach MIPS can be significant. To reach MIPS and get back where
+you were, you'd need to enter a course, exit the course through the
+start menu to return to the lobby, walk downstairs, capture MIPS, enter
+another course, exit again through the menu, and head back upstairs.
+Depending on your speed, this can take close to 30 seconds or longer.
 
 The optimizer may generate a route requiring you to return downstairs
 for MIPS after you've already left the basement. In this case, it may be
