@@ -6,9 +6,9 @@ serious enough to want to get the most out of their 70 star times, but
 not serious enough to learn proper speedrunning techniques and an actual
 [70 star RTA route](https://ukikipedia.net/wiki/RTA_Guide/70_Star).
 
-How this works is that you put times for stars into a configuration
-file, run a script, and it'll generate an optimal route along with a
-webpage that displays the route.
+To use the program, you provide times for stars in a configuration file,
+run a script, and it'll generate an optimal route along with a webpage
+to display it.
 
 The optimization algorithm takes into account
 
