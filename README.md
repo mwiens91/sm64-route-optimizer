@@ -147,7 +147,7 @@ displayed
 
 [^castle-is-a-course]: For simplicity, castle stars—such as "The
   Princess’s Secret Slide", "MIPS Bunny Chase", "Tower of the Wing
-  Cap"—are gruoped under a "course" titled "Peach’s Castle Secret Stars".
+  Cap"—are grouped under a "course" titled "Peach’s Castle Secret Stars".
 [^star-number-special-cases]: Regular course stars combined with a 100
   coin star are given the number 7. Castle stars are given numbers as
   listed
@@ -242,8 +242,8 @@ A few important notes:
 > using ChatGPT (or other generative AI) to help with this process. For
 > recording data, ask for a timer program where you can (1) enter a star
 > ID string you can modify and (2) hit a key (not requiring window
-> focus) to start and end a timer. Have it record each time along with
-> the star ID in a text file. Use this to record star times.
+> focus) to start and end a timer; have it record each time along with
+> the star ID in a text file.
 >
 > After you've collected times in a text file, show it this file and
 > your configuration file, and ask it to integrate the text file times
@@ -259,13 +259,13 @@ following format:
 DEPENDANT_STAR_ID = []
 ```
 
-where the array on the right-hand side of the assignment contains star
-IDs (surrounded by `"`s) which are requirements for `DEPENDANT_STAR_ID`.
-For example, the sixth star on Big Boo's Haunt "Eye to Eye in the Secret
+The array on the right-hand side of the assignment contains star IDs
+(surrounded by `"`s) which are requirements for `DEPENDANT_STAR_ID`. For
+example, the sixth star on Big Boo's Haunt "Eye to Eye in the Secret
 Room" requires us to have obtained the first star "Go on a Ghost Hunt"
 (for the staircase to the second floor of the haunted house) and the
-vanish cap (to enter the room with the eye); this gives us the
-prerequisite relationship
+vanish cap (to enter the room with the eye). This gives the prerequisite
+relationship
 
 ```toml
 BBH6 = ["BBH1", "CASTLE_VANISH_CAP"]
@@ -285,29 +285,29 @@ configuration file. It's useful to modify or add to these in two cases:
   Quick" and use the cannon on the fourth star "Find the 8 Red Coins"
   and fifth star "Mario Wings to the Sky", you'd set the second star as
   a prerequisite for the fourth and fifth stars. Deciding which star to
-  open a cannon on is unfortunately something you need to experiment
+  open the cannon on is unfortunately something you need to experiment
   with. It will take some trial and error. For instance, in the above
   example, the second star "Footrace with Koopa the Quick" takes a long
-  time, and you're likely better off opening the cannon on a different
-  star
+  time, so you're better off skipping it and opening the cannon on a
+  different star
 
 > [!IMPORTANT]
-> 100 coin combined stars must not be included in prerequisite
-> relationships. The program assumes that all 100 coin combined stars
-> share the same prerequisite relationships as the regular course stars
-> they are combined with.
+> 100 coin combined stars share the same prerequisite relationships as
+> the regular course stars they are combined with. Don't include them
+> directly in prerequisite relationships: use the base stars instead!
 
 ## Algorithm
 
-The optimization algorithm works in two steps. In the first step, we
-exhaustively partition "special stars" into being included in or
-excluded from a route; in the second step, we add the fastest
-non-special stars to each partial route until a total of 70 stars are
-reached. Special stars are stars which are prerequisites or have
-alternative stars.[^alternative-stars] We keep track of the fastest
-route and return the best one. The algorithm has a time complexity of
-$\mathcal{O}(3^n)$, where $n$ is the number of regular course stars and
-castle stars which are also special stars.
+First, we make a useful definition: a **special star** is a star which
+is a prerequisite or has an alternative star[^alternative-stars]. The
+optimization algorithm works in two steps. In the first step, we
+exhaustively partition special stars into being included in or excluded
+from a route. In the second step, we add the fastest non-special stars
+to each partition until a total of 70 stars are reached. We keep track
+of the fastest route and return the best one. The algorithm has a time
+complexity of $\mathcal{O}(3^n)$, where $n$ is the number of special
+stars that not 100 coin combined stars (so they're regular course stars
+and castle stars).
 
 [^alternative-stars]: Alternative stars come from 100 coin combined
   stars being alternatives to the regular course stars they are combined
@@ -315,25 +315,20 @@ castle stars which are also special stars.
 
 ### The first step
 
-In the first step, we begin by placing regular course and castle stars
-which are also special stars into an array with the following ordering:
-prerequisites first in topologically sorted
-order;[^topological-sort-method] then all remaining stars in any order.
-We iterate through this array recursively when generating partitions.
+In the first step, we place special stars which are regular course and
+castle stars into an array with the following ordering: prerequisites
+first in topologically sorted order;[^topological-sort-method] then all
+remaining stars in any order.
 
-We start iterating at the first index with two sets: an "included" set
-which contains stars included in the route and an "excluded" set which
-contains stars excluded from the route. For each iteration, we
-separately include the current star at the index (if possible), include
-its 100 coin combined star alternative (if it exists and is possible),
-and exclude both the current star and its 100 coin combined star
-alternative (if it exists) and their descendants. We then continue the
-next iteration using each of these options. A partition is complete
-after we iterate through the final index.
+Using this array we build up partitions which branch into new
+partitions: at each index, we either include the current star at the
+index (if possible), include its 100 coin combined star alternative (if
+it exists and is possible), or exclude the current star, its 100 coin
+combined star alternative (if it exists), and its descendants.
 
-Because the first Dire, Dire Docks star "Board Bowser's Sub" is
-required, "included" sets are initialized with either the `DDD1` star or
-its 100 coin combined star alternative, if it exists.
+Note that because the first Dire, Dire Docks star "Board Bowser's Sub"
+is required, all partitions are initialized with either the `DDD1` star
+or its 100 coin combined star alternative, if it exists.
 
 [^topological-sort-method]: [Kahn's algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn's_algorithm)
   is used for topological sorting.
@@ -342,23 +337,24 @@ its 100 coin combined star alternative, if it exists.
 
 In the second step, we sort all eligible stars for the route in
 ascending order of their time. We also initialize a min-heap, initially
-empty, which will be ordered on star count
-requirement.[^star-count-requirement-example]
+empty, which is ordered by star count requirement.
 
-We start iterating at the first index of the array of stars we sorted.
-If the first star is a special star or is excluded from the route, we
-skip it. If it is eligible to be in the route, but our current star
-count does not meet the star's star count requirement, we push the star
-on the heap. Otherwise, we add the star to the route. Each subsequent
-iteration proceeds as follows:
+We start iterating at the first index of the sorted stars array. If the
+first star is a special star or is excluded from the route, we skip
+it. If it is eligible to be in the route, but our current star count
+does not meet the star's star count requirement, we push the star on the
+heap. Otherwise, we add the star to the route. Each iteration proceeds
+as follows:
 
-- we pop a star from the heap if we meet its star count requirement;
-- else, we look at the star under the current index in the sorted array
-  of stars:
+- if the heap is non-empty and we meet the star count requirement for
+  the star at the top of the heap, we add that star;
+- else, we look through the array until we find a star we can add. For
+  each star we pass over,
   - if the star is a special star or excluded, we skip it
-  - else, if we do not meet the star's star count requirement, we push
-    it on the heap
-  - else, we add the star to the route
+  - if the star is not special but we do not meet the star's star count
+    requirement, we push it on the heap
+  - otherwise, we add the star to the route and proceed to the next
+    iteration
 
 We continue until we reach a total of 70 stars, and then update the best
 route found so far given the sum of star times for the route.
@@ -366,11 +362,6 @@ route found so far given the sum of star times for the route.
 Note that there is additional logic in the second step required to limit
 the number of upper level stars if this option was specified as a
 command line argument; however, this is not presented here.
-
-[^star-count-requirement-example]: An example of star count
-  requirements: because the door leading to Cool, Cool Mountain requires
-  three stars to enter, all Cool, Cool Montain stars have a star count
-  requirement of at least 3.
 
 ## Limitations
 
@@ -382,9 +373,9 @@ See this footnote: [^cap-stage-assumption].
 
 Removing this limitation shouldn't be too difficult. You'd need to
 record times separately for getting a cap with and without the cap stage
-star. Then, you'd handle the mutually exclusive times similarly to how
+star. Then, you'd handle the mutually exclusivity similarly to how
 regular course stars and their 100 coin combined star alternatives are
-handled, which are also mutally exclusive.
+handled.
 
 My personal opinion is that this limitation is a non-issue.
 
@@ -399,25 +390,18 @@ alternatives: all 100 coin combined stars share the prerequisites of the
 regular course star they are combined with.
 
 I've given this limitation quite a bit of thought. The algorithm would
-need to be modified. In the
+need to be modified. Specifically, in the
 [first step of the algorithm](#the-first-step), you would need to
-iterate over all special stars—thus including all 100 coin combined
-stars which are special stars—and remove the recursive step that
-optionally includes a star's 100 coin combined star alternative (since
-these are now in the array being iterated over). The topological sort
-would also need to be modified, since a star would have multiple
-prerequisites it could use. This is all possible though.
+iterate over all special stars—now including all 100 coin combined
+stars—and also therefore drop the branch that optionally includes a
+star's 100 coin combined star alternative (since these are now in the
+array being iterated over). Additionally, Since stars would now have
+multiple prerequisites it could use for a given base star, the
+topoligical sort would need to be modified. This is all possible though.
 
 The real challenge is designing the configuration file in an elegant way
-that avoids excessive complexity and redundancy. For example, one
-approach involves listing prerequisites for 100 coin combined stars
-separately from the stars they are combined with. In the worst case,
-this adds 15 lines to the configuration file that are nearly identical
-to 15 other lines. And those lines will need to stay nearly identical—so
-when you change one of the lines, you also might need to change the
-other line. It's pretty gross, and I haven't come up with ways of
-circumventing this limitation that don't involve at least *something*
-gross.
+that avoids excessive complexity and redundancy. I haven't yet been able
+to think of a design I'm satisfied with.
 
 ### Travel times between courses are not considered
 
@@ -436,10 +420,8 @@ partitioning scheme. This increases running time by a factor of $2^{15}
 \approx 33000$. Given that the current running time is typically a few
 seconds, this would extend runtime to around 2 days.
 
-However, the optimizer is well-suited for parallel processing, since
-instances of the optimization algorithm do not need to interact and can
-use independent sets of data. This is something to explore in the
-future.
+However, the optimizer is well-suited for parallel processing, and that
+might make the cost significantly cheaper.
 
 ## Advice
 
@@ -448,7 +430,7 @@ This section contains advice related to travel times.
 ### Factoring in travel time for "Vanish Cap Under the Moat"
 
 I discussed previously how travel time between courses isn't
-implemented. However, since the vanish cap star "Vanish Cap Under the
+considered. However, since the vanish cap star "Vanish Cap Under the
 Moat" is the only star on its stage and reaching the stage takes a
 *long* time, you can manually account for travel time by adding travel
 time to the star time in the configuration file.
@@ -475,7 +457,6 @@ however, that limiting the number of upper level stars to 19 isn't
 foolproof: for example, you could have an alternative route containing
 exactly 50 non-upper level stars, with one of the stars being the sixth
 Jolly Roger Bay star "Through the Jet Stream". This still requires you
-to leave the basement before capturing MIPS and does not solve the
-issue. In such cases, you'd need to adjust the limit further—for
-example, to 18 upper-level stars.
-
+to leave the basement before capturing MIPS (because you need the metal
+cap for that star) and does not solve the issue. In such cases, you'd
+need to adjust the limit further—for example, to 18 upper-level stars.
