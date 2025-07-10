@@ -152,7 +152,9 @@ def get_and_validate_config(
                 ConfigKeys.HUNDRED_COIN_COMBINED_WITH
             ]
             == DataKeys.STAR_DDD1_ID
-            and hundred_coin_times[DataKeys.STAR_DDD_100_ID][ConfigKeys.HUNDRED_COIN_TIMES]
+            and hundred_coin_times[DataKeys.STAR_DDD_100_ID][
+                ConfigKeys.HUNDRED_COIN_TIMES
+            ]
         )
 
         if not ddd1_okay and not ddd_100_okay:
