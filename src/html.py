@@ -72,7 +72,7 @@ def generate_page_html(
     # Add the time we're making this page
     summary_divs.append(
         ft.Div(
-            f"Generated on {datetime.now().astimezone().strftime("%Y-%m-%d %H:%M %Z%z")}",
+            f"Generated on {datetime.now().astimezone().strftime('%Y-%m-%d %H:%M %Z%z')}",
             cls="mt-3",
         )
     )
