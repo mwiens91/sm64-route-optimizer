@@ -2,8 +2,8 @@
 
 import argparse
 import pathlib
-from src.constants import DataKeys, EXPECTED_CONFIG_FILE, NUM_STARS_IN_ROUTE
-from src import util
+from .constants import DataKeys, EXPECTED_CONFIG_FILE, NUM_STARS_IN_ROUTE
+from . import util
 
 
 def get_runtime_args() -> argparse.Namespace:

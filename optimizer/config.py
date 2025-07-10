@@ -4,9 +4,9 @@ import logging
 import pathlib
 import tomllib
 from cerberus import Validator
-from src.constants import ConfigKeys, DataKeys, EXAMPLE_CONFIG_FILE
-from src.exceptions import ConfigFileInvalid, ConfigFileNotFound
-from src import util
+from .constants import ConfigKeys, DataKeys, EXAMPLE_CONFIG_FILE
+from .exceptions import ConfigFileInvalid, ConfigFileNotFound
+from . import util
 
 
 # Set up logging for this module

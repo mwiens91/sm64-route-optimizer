@@ -3,8 +3,8 @@
 from datetime import datetime
 import itertools
 from fasthtml import ft
-from src.constants import DataKeys, Locations, MAXIMUM_COURSES_PER_ROW
-from src import util
+from .constants import DataKeys, Locations, MAXIMUM_COURSES_PER_ROW
+from . import util
 
 
 def generate_page_html(

@@ -6,8 +6,8 @@ import functools
 import random
 import re
 import statistics
-from src.constants import ALL_LOCATIONS, ConfigKeys, DataKeys
-from src.course_data import COURSES
+from .constants import ALL_LOCATIONS, ConfigKeys, DataKeys
+from .course_data import COURSES
 
 
 def get_course_ids(include_castle: bool = True) -> set[str]:

@@ -3,19 +3,19 @@
 import heapq
 import itertools
 import math
-from src.constants import (
+from .constants import (
     ALL_LOCATIONS,
     DataKeys,
     NUM_STARS_IN_ROUTE,
     STAR_TIME_TUPLE_STAR_ID_INDEX,
     UPPER_LEVEL_LOCATIONS,
 )
-from src.exceptions import InsufficientRemainingStars, NoValidRoutePossible
-from src.optimize_helpers import (
+from .exceptions import InsufficientRemainingStars, NoValidRoutePossible
+from .optimize_helpers import (
     find_descendants,
     get_topological_sort_of_prerequisites,
 )
-from src import util
+from . import util
 
 
 def get_optimal_route(

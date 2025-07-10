@@ -6,14 +6,14 @@ import pathlib
 import sys
 
 
-# Add the src folder to the path
-sys.path.append(str(pathlib.Path(__file__).resolve().parent / "src"))
+# Add the optimizer folder to the path
+sys.path.append(str(pathlib.Path(__file__).resolve().parent / "optimizer"))
 
-# Import from src
+# Import from optimizer
 
 # pylint: disable=wrong-import-position
-from src.main import main
-from src.exceptions import (
+from optimizer.main import main
+from optimizer.exceptions import (
     ConfigFileInvalid,
     ConfigFileNotFound,
     InvalidExcludedStarIds,

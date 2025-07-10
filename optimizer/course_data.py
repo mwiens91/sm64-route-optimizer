@@ -7,7 +7,7 @@ adjust/augment the data contained in this module to address both of
 these limitations.
 """
 
-from src.constants import DataKeys, Locations
+from .constants import DataKeys, Locations
 
 
 COURSES = [

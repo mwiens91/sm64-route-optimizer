@@ -2,18 +2,18 @@
 
 import logging
 import random
-from src.args import get_runtime_args
-from src.config import get_and_validate_config
-from src.constants import (
+from .args import get_runtime_args
+from .config import get_and_validate_config
+from .constants import (
     ConfigKeys,
     DataKeys,
     NUM_STARS_IN_ROUTE,
     OUTPUT_HTML_FILE,
 )
-from src.exceptions import InvalidExcludedStarIds
-from src.html import generate_page_html
-from src.optimize import get_optimal_route
-from src import util
+from .exceptions import InvalidExcludedStarIds
+from .html import generate_page_html
+from .optimize import get_optimal_route
+from . import util
 
 
 # Set up logging for this module

@@ -186,7 +186,7 @@ The general principle is
 
 A full correspondence of star names with star IDs for non-100 coin
 combined stars is available in
-[`src/course_data.py`](src/course_data.py).
+[`optimizer/course_data.py`](optimizer/course_data.py).
 
 ### Entering times
 
