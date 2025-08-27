@@ -234,12 +234,10 @@ A few important notes:
   from being included in the route[^cap-stage-assumption]
 
 [^cap-stage-assumption]:
-    The program assumes that if you're getting a cap
-    (e.g., the wing cap), you're also getting the 8 red coin star on the
-    cap stage (e.g., the "Tower of the Wing Cap" star). A consequence of
-    this is that if a cap stage star is not included in a route or is
-    excluded through either not having a time or a command line argument,
-    then all stars it is a prerequisite for are also excluded.
+    The program assumes that if you're getting a cap (e.g., the wing
+    cap), you're also getting the 8 red coin star on the cap stage (e.g.,
+    the "Tower of the Wing Cap" star). If a cap stage's 8 red coin star is
+    not in a route, all stars it is a prerequisite for are also excluded.
 
 > [!TIP]
 > How you record and enter data is up to you. That said, I'd recommend
@@ -395,15 +393,13 @@ prerequisites for regular course stars and their 100 coin combined star
 alternatives: all 100 coin combined stars share the prerequisites of the
 regular course star they are combined with.
 
-I've given this limitation quite a bit of thought. The algorithm would
-need to be modified. Specifically, in the
-[first step of the algorithm](#the-first-step), you would need to
-iterate over all special stars—now including all 100 coin combined
-stars—and also therefore drop the branch that optionally includes a
-star's 100 coin combined star alternative (since these are now in the
-array being iterated over). Additionally, Since stars would now have
-multiple prerequisites it could use for a given base star, the
-topological sort would need to be modified. This is all possible though.
+I've given solving this limitation quite a bit of thought. The algorithm
+would need to be modified. Specifically, in the [first step of the
+algorithm](#the-first-step), we'd need to include 100 coin special stars
+in the main iteration instead of dealing with them in a
+branch. Additionally, since stars would now have multiple prerequisites
+they could choose for a given base star prerequisite, the topological
+sort would need to be modified. This is all possible though.
 
 The real challenge is designing the configuration file in an elegant way
 that avoids excessive complexity and redundancy. I haven't yet been able
