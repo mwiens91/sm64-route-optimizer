@@ -6,7 +6,7 @@ import typing
 
 
 def get_topological_sort_of_prerequisites(
-    adjacency_list_dict: dict[str, list[str]]
+    adjacency_list_dict: dict[str, list[str]],
 ) -> list[str]:
     """Return a topologically sorted list of prerequisites.
 

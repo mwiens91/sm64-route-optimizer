@@ -181,7 +181,7 @@ def filter_star_time_tuples(
 
 
 def build_star_times_dict_from_star_time_tuples(
-    star_time_tuples: Iterable[tuple[float, str]]
+    star_time_tuples: Iterable[tuple[float, str]],
 ) -> dict[str, float]:
     """Build a dictionary with star IDs as keys and times as values.
 
@@ -197,7 +197,7 @@ def build_star_times_dict_from_star_time_tuples(
 
 
 def build_base_star_alts_dict(
-    config_100_coin_times: dict[str, dict[str, list[float] | str]]
+    config_100_coin_times: dict[str, dict[str, list[float] | str]],
 ) -> dict[str, str]:
     """Build a dictionary with 100 coin star alternatives for base stars.
 
@@ -220,7 +220,7 @@ def build_base_star_alts_dict(
 
 
 def get_adjacency_list_dict_from_prerequisites_dict(
-    prerequisites_dict: dict[str, list[str]]
+    prerequisites_dict: dict[str, list[str]],
 ) -> dict[str, list[str]]:
     """Build a dictionary of adjacency lists from prerequisite data.
 
@@ -289,7 +289,7 @@ def build_star_locations_dict(course_data: list[dict]) -> dict[str, int]:
 
 
 def adjust_course_data_star_count_requirements_from_prerequisites(
-    prerequisites_dict: dict[str, list[str]]
+    prerequisites_dict: dict[str, list[str]],
 ) -> list[dict]:
     """Adjust course data star count requirements using prerequisites.
 
