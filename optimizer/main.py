@@ -1,17 +1,13 @@
 """Contains the main function for the program."""
 
+from datetime import datetime
+import json
 import logging
 import random
 from .args import get_runtime_args
 from .config import get_and_validate_config
-from .constants import (
-    ConfigKeys,
-    DataKeys,
-    NUM_STARS_IN_ROUTE,
-    OUTPUT_HTML_FILE,
-)
+from .constants import ConfigKeys, DataKeys, NUM_STARS_IN_ROUTE, DESTINATION_DIR
 from .exceptions import InvalidExcludedStarIds
-from .html import generate_page_html
 from .optimize import get_optimal_route
 from . import util
 
@@ -21,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 def main() -> None:
-    """Generate an HTML file containing an optimal 70 star route."""
+    """Generate a JSON file containing an optimal 70 star route."""
     # Get runtime arguments and config data
     args = get_runtime_args()
     config_data = get_and_validate_config(
@@ -133,19 +129,24 @@ def main() -> None:
             route_remaining_seconds,
         )
 
-    # Output route to HTML
-    page_html = generate_page_html(
+    # Output route to JSON
+    DESTINATION_DIR.mkdir(exist_ok=True)
+
+    # TODO: make a function to sort the route star ids set
+    # TODO: put times and route stars in included dict
+    data = dict(
         route_star_ids=route_star_ids_set,
         route_time=route_time,
-        star_times_dict=star_times_dict,
         num_stars_per_location_dict=util.build_num_stars_per_location_dict(
             route_star_ids=route_star_ids_set, course_data=processed_course_data
         ),
         num_stars_per_course_dict=util.build_num_stars_per_course_dict(
             route_star_ids=route_star_ids_set, course_data=processed_course_data
         ),
+        star_times_dict=star_times_dict,
         course_data=processed_course_data,
     )
-
-    with open(OUTPUT_HTML_FILE, "w", encoding="utf-8") as f:
-        f.write(page_html)
+    output_path = (
+        DESTINATION_DIR / f"{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.json"
+    )
+    output_path.write_text(json.dumps(data, indent=2))

@@ -78,9 +78,6 @@ STAR_TIME_TUPLE_STAR_ID_INDEX = 1
 
 # Paths
 REPOSITORY_ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
+DESTINATION_DIR = REPOSITORY_ROOT_DIR / "routes"
 EXAMPLE_CONFIG_FILE = REPOSITORY_ROOT_DIR / "config.toml.example"
 EXPECTED_CONFIG_FILE = REPOSITORY_ROOT_DIR / "config.toml"
-OUTPUT_HTML_FILE = REPOSITORY_ROOT_DIR / "index.html"
-
-# Configuration for HTML output
-MAXIMUM_COURSES_PER_ROW = 2
