@@ -298,7 +298,7 @@ configuration file. It's useful to modify or add to these in two cases:
 
 ## Algorithm
 
-First, we make a useful definition: a **special star** is a star which
+First, we make a useful definition: a *special star* is a star which
 is a prerequisite or has an alternative star[^alternative-stars]. The
 optimization algorithm works in two steps. In the first step, we
 exhaustively partition special stars into being included in or excluded
