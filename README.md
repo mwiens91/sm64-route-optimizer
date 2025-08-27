@@ -145,13 +145,16 @@ table row contains information for every star with an entered time:
 Above each table, the total number of stars obtained from that course is
 displayed
 
-[^castle-is-a-course]: For simplicity, castle stars—such as "The
-  Princess’s Secret Slide", "MIPS Bunny Chase", "Tower of the Wing
-  Cap"—are grouped under a "course" titled "Peach’s Castle Secret Stars".
-[^star-number-special-cases]: Regular course stars combined with a 100
-  coin star are given the number 7. Castle stars are given numbers as
-  listed
-  [here](https://mariopartylegacy.com/guides/super-mario-64-walkthrough/peachs-castle-secret-stars).
+[^castle-is-a-course]:
+    For simplicity, castle stars—such as "The
+    Princess’s Secret Slide", "MIPS Bunny Chase", "Tower of the Wing
+    Cap"—are grouped under a "course" titled "Peach’s Castle Secret Stars".
+
+[^star-number-special-cases]:
+    Regular course stars combined with a 100
+    coin star are given the number 7. Castle stars are given numbers as
+    listed
+    [here](https://mariopartylegacy.com/guides/super-mario-64-walkthrough/peachs-castle-secret-stars).
 
 ## Configuration
 
@@ -230,12 +233,13 @@ A few important notes:
 - omitting times for cap stars precludes stars which require that cap
   from being included in the route[^cap-stage-assumption]
 
-[^cap-stage-assumption]: The program assumes that if we're getting a cap
-  (e.g., the wing cap), we're also getting the 8 red coin star on the
-  cap stage (e.g., the "Tower of the Wing Cap" star). A consequence of
-  this is that if a cap stage star is not included in a route or is
-  excluded through either not having a time or a command line argument,
-  then all stars it is a prerequisite for are also excluded.
+[^cap-stage-assumption]:
+    The program assumes that if you're getting a cap
+    (e.g., the wing cap), you're also getting the 8 red coin star on the
+    cap stage (e.g., the "Tower of the Wing Cap" star). A consequence of
+    this is that if a cap stage star is not included in a route or is
+    excluded through either not having a time or a command line argument,
+    then all stars it is a prerequisite for are also excluded.
 
 > [!TIP]
 > How you record and enter data is up to you. That said, I'd recommend
@@ -298,7 +302,7 @@ configuration file. It's useful to modify or add to these in two cases:
 
 ## Algorithm
 
-First, we make a useful definition: a *special star* is a star which
+First, we make a useful definition: a _special star_ is a star which
 is a prerequisite or has an alternative star[^alternative-stars]. The
 optimization algorithm works in two steps. In the first step, we
 exhaustively partition special stars into being included in or excluded
@@ -309,9 +313,10 @@ complexity of $\mathcal{O}(3^n)$, where $n$ is the number of special
 stars that not 100 coin combined stars (so they're regular course stars
 and castle stars).
 
-[^alternative-stars]: Alternative stars come from 100 coin combined
-  stars being alternatives to the regular course stars they are combined
-  with.
+[^alternative-stars]:
+    Alternative stars come from 100 coin combined
+    stars being alternatives to the regular course stars they are combined
+    with.
 
 ### The first step
 
@@ -330,8 +335,9 @@ Note that because the first Dire, Dire Docks star "Board Bowser's Sub"
 is required, all partitions are initialized with either the `DDD1` star
 or its 100 coin combined star alternative, if it exists.
 
-[^topological-sort-method]: [Kahn's algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn's_algorithm)
-  is used for topological sorting.
+[^topological-sort-method]:
+    [Kahn's algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn's_algorithm)
+    is used for topological sorting.
 
 ### The second step
 
@@ -432,8 +438,8 @@ This section contains advice related to travel times.
 I discussed previously how travel time between courses isn't
 considered. However, since the vanish cap star "Vanish Cap Under the
 Moat" is the only star on its stage and reaching the stage takes a
-*long* time, you can manually account for travel time by adding travel
-time to the star time in the configuration file.
+_long_ time, you can manually account for its travel time by adding
+travel time to the star time in the configuration file.
 
 ### MIPS is a menace
 
