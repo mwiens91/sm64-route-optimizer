@@ -54,7 +54,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "BOB6",
                 DataKeys.STAR_NUMBER: 6,
-                DataKeys.STAR_NAME: "Behind Chain Chomp’s Gate",
+                DataKeys.STAR_NAME: "Behind Chain Chomp's Gate",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 0,
             },
@@ -63,12 +63,12 @@ COURSES = [
     {
         DataKeys.COURSE_ID: "WF",
         DataKeys.COURSE_NUMBER: 2,
-        DataKeys.COURSE_NAME: "Whomp’s Fortress",
+        DataKeys.COURSE_NAME: "Whomp's Fortress",
         DataKeys.COURSE_STARS: [
             {
                 DataKeys.STAR_ID: "WF1",
                 DataKeys.STAR_NUMBER: 1,
-                DataKeys.STAR_NAME: "Chip off Whomp’s Block",
+                DataKeys.STAR_NAME: "Chip off Whomp's Block",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 1,
             },
@@ -166,14 +166,14 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "CCM1",
                 DataKeys.STAR_NUMBER: 1,
-                DataKeys.STAR_NAME: "Slip Slidin’ Away",
+                DataKeys.STAR_NAME: "Slip Slidin' Away",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 3,
             },
             {
                 DataKeys.STAR_ID: "CCM2",
                 DataKeys.STAR_NUMBER: 2,
-                DataKeys.STAR_NAME: "Li’l Penguin Lost",
+                DataKeys.STAR_NAME: "Li'l Penguin Lost",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 3,
             },
@@ -194,7 +194,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "CCM5",
                 DataKeys.STAR_NUMBER: 5,
-                DataKeys.STAR_NAME: "Snowman’s Lost his Head",
+                DataKeys.STAR_NAME: "Snowman's Lost his Head",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 3,
             },
@@ -210,7 +210,7 @@ COURSES = [
     {
         DataKeys.COURSE_ID: "BBH",
         DataKeys.COURSE_NUMBER: 5,
-        DataKeys.COURSE_NAME: "Big Boo’s Haunt",
+        DataKeys.COURSE_NAME: "Big Boo's Haunt",
         DataKeys.COURSE_STARS: [
             {
                 DataKeys.STAR_ID: "BBH1",
@@ -222,7 +222,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "BBH2",
                 DataKeys.STAR_NUMBER: 2,
-                DataKeys.STAR_NAME: "Ride Big Boo’s Merry-Go-Round",
+                DataKeys.STAR_NAME: "Ride Big Boo's Merry-Go-Round",
                 DataKeys.STAR_LOCATION: Locations.COURTYARD,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 12,
             },
@@ -243,7 +243,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "BBH5",
                 DataKeys.STAR_NUMBER: 5,
-                DataKeys.STAR_NAME: "Big Boo’s Balcony",
+                DataKeys.STAR_NAME: "Big Boo's Balcony",
                 DataKeys.STAR_LOCATION: Locations.COURTYARD,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 12,
             },
@@ -411,7 +411,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "DDD1",
                 DataKeys.STAR_NUMBER: 1,
-                DataKeys.STAR_NAME: "Board Bowser’s Sub",
+                DataKeys.STAR_NAME: "Board Bowser's Sub",
                 DataKeys.STAR_LOCATION: Locations.BASEMENT,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
@@ -439,7 +439,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "DDD5",
                 DataKeys.STAR_NUMBER: 5,
-                DataKeys.STAR_NAME: "The Manta Ray’s Reward",
+                DataKeys.STAR_NAME: "The Manta Ray's Reward",
                 DataKeys.STAR_LOCATION: Locations.BASEMENT,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
@@ -455,12 +455,12 @@ COURSES = [
     {
         DataKeys.COURSE_ID: "SL",
         DataKeys.COURSE_NUMBER: 10,
-        DataKeys.COURSE_NAME: "Snowman’s Land",
+        DataKeys.COURSE_NAME: "Snowman's Land",
         DataKeys.COURSE_STARS: [
             {
                 DataKeys.STAR_ID: "SL1",
                 DataKeys.STAR_NUMBER: 1,
-                DataKeys.STAR_NAME: "Snowman’s Big Head",
+                DataKeys.STAR_NAME: "Snowman's Big Head",
                 DataKeys.STAR_LOCATION: Locations.UPSTAIRS,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
@@ -488,7 +488,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "SL5",
                 DataKeys.STAR_NUMBER: 5,
-                DataKeys.STAR_NAME: "Shell Shreddin’ for 8 Red Coins",
+                DataKeys.STAR_NAME: "Shell Shreddin' for 8 Red Coins",
                 DataKeys.STAR_LOCATION: Locations.UPSTAIRS,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
@@ -516,7 +516,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "WDW2",
                 DataKeys.STAR_NUMBER: 2,
-                DataKeys.STAR_NAME: "Top O’ The Town",
+                DataKeys.STAR_NAME: "Top O' The Town",
                 DataKeys.STAR_LOCATION: Locations.UPSTAIRS,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
@@ -635,7 +635,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "THI5",
                 DataKeys.STAR_NUMBER: 5,
-                DataKeys.STAR_NAME: "Wiggler’s Red Coins",
+                DataKeys.STAR_NAME: "Wiggler's Red Coins",
                 DataKeys.STAR_LOCATION: Locations.UPSTAIRS,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
@@ -726,7 +726,7 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "RR4",
                 DataKeys.STAR_NUMBER: 4,
-                DataKeys.STAR_NAME: "Swingin’ in the Breeze",
+                DataKeys.STAR_NAME: "Swingin' in the Breeze",
                 DataKeys.STAR_LOCATION: Locations.TIPPY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 50,
             },
@@ -749,19 +749,19 @@ COURSES = [
     {
         DataKeys.COURSE_ID: "CASTLE",
         DataKeys.COURSE_NUMBER: 16,
-        DataKeys.COURSE_NAME: "Peach’s Castle Secret Stars",
+        DataKeys.COURSE_NAME: "Peach's Castle Secret Stars",
         DataKeys.COURSE_STARS: [
             {
                 DataKeys.STAR_ID: "CASTLE_SS1",
                 DataKeys.STAR_NUMBER: 1,
-                DataKeys.STAR_NAME: "The Princess’s Secret Slide",
+                DataKeys.STAR_NAME: "The Princess's Secret Slide",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 1,
             },
             {
                 DataKeys.STAR_ID: "CASTLE_SS2",
                 DataKeys.STAR_NUMBER: 2,
-                DataKeys.STAR_NAME: "The Princess’s Secret Slide (Return)",
+                DataKeys.STAR_NAME: "The Princess's Secret Slide (Return)",
                 DataKeys.STAR_LOCATION: Locations.LOBBY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 1,
             },
@@ -775,21 +775,21 @@ COURSES = [
             {
                 DataKeys.STAR_ID: "CASTLE_TOAD1",
                 DataKeys.STAR_NUMBER: 4,
-                DataKeys.STAR_NAME: "Toad’s First Star",
+                DataKeys.STAR_NAME: "Toad's First Star",
                 DataKeys.STAR_LOCATION: Locations.BASEMENT,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 8,
             },
             {
                 DataKeys.STAR_ID: "CASTLE_TOAD2",
                 DataKeys.STAR_NUMBER: 5,
-                DataKeys.STAR_NAME: "Toad’s Second Star",
+                DataKeys.STAR_NAME: "Toad's Second Star",
                 DataKeys.STAR_LOCATION: Locations.UPSTAIRS,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 30,
             },
             {
                 DataKeys.STAR_ID: "CASTLE_TOAD3",
                 DataKeys.STAR_NUMBER: 6,
-                DataKeys.STAR_NAME: "Toad’s Third Star",
+                DataKeys.STAR_NAME: "Toad's Third Star",
                 DataKeys.STAR_LOCATION: Locations.TIPPY,
                 DataKeys.STAR_NUM_STARS_REQUIRED: 50,
             },
