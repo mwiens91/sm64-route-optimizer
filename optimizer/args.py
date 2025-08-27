@@ -41,26 +41,26 @@ def get_runtime_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--max-upper-level-stars",
-        help="set upper limit to number of stars from upstairs and tippy"
-        " to include in the route",
+        help="set maximum number of stars from upstairs and tippy to"
+        " include in the route",
         type=int,
         default=NUM_STARS_IN_ROUTE,
     )
+    # NOTE: Use this in development to get output without having
+    # sufficient data
     parser.add_argument(
         "-g",
         "--generate-fake-times",
-        help="simulate user time data instead of reading it from user config data"
-        "; if a user config file is present—either the default or specified"
-        " through the --config argument—the 100 coin star and prerequisite relationships"
-        " from that file are used; otherwise, the example config file is used for"
-        " 100 coin star and prerequisite relationships",
+        help="generate a route using randomly generated star times"
+        " (uses logic from example config file if user config does does not exist)",
         action="store_true",
     )
+    # NOTE: Use this in development to get output quickly
     parser.add_argument(
         "-f",
         "--generate-fake-route",
-        help=f"pick {NUM_STARS_IN_ROUTE} stars randomly to include in the route"
-        " (intended for generating output HTML quickly while developing the program)",
+        help=f"generate a route with {NUM_STARS_IN_ROUTE} randomly chosen stars"
+        " (no logic or optimization)",
         action="store_true",
     )
 
