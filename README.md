@@ -82,7 +82,7 @@ Battlefield and Rainbow Ride, you'd run
 Similarly, we can also exclude specific stars from the route with the
 `--exclude-star-ids` flag. For example, to exclude Bob-omb Battlefield's
 second star "Footrace with Koopa the Quick" and Cool, Cool Mountain's
-third star  "Big Penguin Race", you'd run
+third star "Big Penguin Race", you'd run
 
 ```bash
 ./sm64-route-optimizer.py --exclude-star-ids BOB2 CCM3
@@ -120,7 +120,7 @@ After finding an optimal route, the program generates an HTML file
 [here](https://mwiens91.github.io/sm64-route-optimizer/). The page first
 displays a route summary, which includes the following information:
 
-- the sum of star times for the route. This will shorter than the actual
+- the sum of star times for the route. This will be shorter than the actual
   route time, since travel time is not factored into the sum
 - the number of stars obtained from each castle location:
   - lobby: the first floor including Bob-omb Battlefield, Bowser in the
@@ -397,7 +397,7 @@ stars—and also therefore drop the branch that optionally includes a
 star's 100 coin combined star alternative (since these are now in the
 array being iterated over). Additionally, Since stars would now have
 multiple prerequisites it could use for a given base star, the
-topoligical sort would need to be modified. This is all possible though.
+topological sort would need to be modified. This is all possible though.
 
 The real challenge is designing the configuration file in an elegant way
 that avoids excessive complexity and redundancy. I haven't yet been able
