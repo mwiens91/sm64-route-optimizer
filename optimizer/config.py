@@ -3,10 +3,15 @@
 import logging
 import pathlib
 import tomllib
-from cerberus import Validator
 from .constants import ConfigKeys, DataKeys, EXAMPLE_CONFIG_FILE
 from .exceptions import ConfigFileInvalid, ConfigFileNotFound
 from . import util
+
+# Get cerberus if its installed for config data validation
+try:
+    import cerberus
+except ImportError:
+    cerberus = None
 
 
 # Set up logging for this module
@@ -14,49 +19,50 @@ logger = logging.getLogger(__name__)
 
 
 # Schema for config data
-NON_100_COIN_STARS = util.get_star_ids(include_all_possible_100_coin_stars=False)
+if cerberus is not None:
+    NON_100_COIN_STARS = util.get_star_ids(include_all_possible_100_coin_stars=False)
 
-CONFIG_DATA_SCHEMA = {
-    ConfigKeys.TIMES_TABLE: {
-        "type": "dict",
-        "keysrules": {
-            "type": "string",
-            "allowed": NON_100_COIN_STARS,
-        },
-        "valuesrules": {"type": "list", "schema": {"type": "float"}},
-    },
-    ConfigKeys.HUNDRED_COIN_TIMES_TABLE: {
-        "type": "dict",
-        "keysrules": {
-            "type": "string",
-            "allowed": util.get_all_possible_100_coin_star_ids(),
-        },
-        "valuesrules": {
+    CONFIG_DATA_SCHEMA = {
+        ConfigKeys.TIMES_TABLE: {
             "type": "dict",
-            "schema": {
-                ConfigKeys.HUNDRED_COIN_TIMES: {
-                    "type": "list",
-                    "schema": {"type": "float"},
-                },
-                ConfigKeys.HUNDRED_COIN_COMBINED_WITH: {
-                    "type": "string",
-                    "allowed": util.get_star_ids(
-                        include_all_possible_100_coin_stars=False,
-                        include_castle_stars=False,
-                    ),
+            "keysrules": {
+                "type": "string",
+                "allowed": NON_100_COIN_STARS,
+            },
+            "valuesrules": {"type": "list", "schema": {"type": "float"}},
+        },
+        ConfigKeys.HUNDRED_COIN_TIMES_TABLE: {
+            "type": "dict",
+            "keysrules": {
+                "type": "string",
+                "allowed": util.get_all_possible_100_coin_star_ids(),
+            },
+            "valuesrules": {
+                "type": "dict",
+                "schema": {
+                    ConfigKeys.HUNDRED_COIN_TIMES: {
+                        "type": "list",
+                        "schema": {"type": "float"},
+                    },
+                    ConfigKeys.HUNDRED_COIN_COMBINED_WITH: {
+                        "type": "string",
+                        "allowed": util.get_star_ids(
+                            include_all_possible_100_coin_stars=False,
+                            include_castle_stars=False,
+                        ),
+                    },
                 },
             },
         },
-    },
-    ConfigKeys.PREREQUISITES_TABLE: {
-        "type": "dict",
-        "keysrules": {"type": "string", "allowed": NON_100_COIN_STARS},
-        "valuesrules": {
-            "type": "list",
-            "schema": {"type": "string", "allowed": NON_100_COIN_STARS},
+        ConfigKeys.PREREQUISITES_TABLE: {
+            "type": "dict",
+            "keysrules": {"type": "string", "allowed": NON_100_COIN_STARS},
+            "valuesrules": {
+                "type": "list",
+                "schema": {"type": "string", "allowed": NON_100_COIN_STARS},
+            },
         },
-    },
-}
+    }
 
 
 def get_and_validate_config(
@@ -116,14 +122,15 @@ def get_and_validate_config(
         config_data = tomllib.load(f)
 
     # Validate data
-    validator = Validator(CONFIG_DATA_SCHEMA)
+    if cerberus is not None:
+        validator = cerberus.Validator(CONFIG_DATA_SCHEMA)
 
-    if not validator.validate(config_data):
-        # TODO: format this output better
-        raise ConfigFileInvalid(
-            f"Config at {target_config_path} is invalid due to the following schema errors: "
-            + str(validator.errors)
-        )
+        if not validator.validate(config_data):
+            # TODO: format this output better
+            raise ConfigFileInvalid(
+                f"Config at {target_config_path} is invalid due to the following schema errors: "
+                + str(validator.errors)
+            )
 
     # If we aren't generating fake times, ensure times for either DDD1
     # or DDD_100 combined with DDD1 are present
