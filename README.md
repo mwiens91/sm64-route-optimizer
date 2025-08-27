@@ -12,14 +12,14 @@ to display it.
 
 The optimization algorithm takes into account
 
-- prerequisite relationships (e.g., we need the wing cap to get the
+- prerequisite relationships (e.g., you need the wing cap to get the
   "Shoot to the Island in the Sky" star on Bob-omb Battlefield)
 - mutual exclusivity relationships introduced by combining 100 coin
-  stars with regular course stars (e.g., if we have separate times for
+  stars with regular course stars (e.g., if you have separate times for
   collecting 8 red coins and for collecting both 8 red coins and the 100 coin
-  star at once on Whomp's Fortress, we can only include one of those
+  star at once on Whomp's Fortress, you can only include one of those
   times in the route)
-- star count requirements (e.g., we need at least 8 lobby stars to access
+- star count requirements (e.g., you need at least 8 lobby stars to access
   Bowser in the Dark World and any stars outside the lobby)
 - required stars, of which there is only one—the Dire, Dire Docks "Board
   Bowser’s Sub" star, which is required to access Bowser in the Fire
@@ -55,7 +55,7 @@ To run the route optimizer execute the
 ```
 
 Running this command will fail without a user configuration file (see
-[Configuration](#configuration)). However, we can still run the
+[Configuration](#configuration)). However, you can still run the
 optimizer without a user configuration file with the
 `--generate-fake-times` flag (this uses information from the
 [example configuration file](config.toml.example) as a fallback when no
@@ -71,7 +71,7 @@ star route!
 
 ### Excluding stars and courses
 
-We can exclude specific courses from the route with the
+You can exclude specific courses from the route with the
 `--exclude-course-ids` flag. For example, to exclude stars from Bob-omb
 Battlefield and Rainbow Ride, you'd run
 
@@ -79,7 +79,7 @@ Battlefield and Rainbow Ride, you'd run
 ./sm64-route-optimizer.py --exclude-course-ids BOB RR
 ```
 
-Similarly, we can also exclude specific stars from the route with the
+Similarly, you can also exclude specific stars from the route with the
 `--exclude-star-ids` flag. For example, to exclude Bob-omb Battlefield's
 second star "Footrace with Koopa the Quick" and Cool, Cool Mountain's
 third star "Big Penguin Race", you'd run
@@ -93,7 +93,7 @@ convention detailed in [Configuration](#configuration).
 
 ### Limiting upper level stars
 
-We can limit the number of stars obtained from the castle's upper levels
+You can limit the number of stars obtained from the castle's upper levels
 with the `--max-upper-level-stars` flag. For example, to ensure that you
 obtain at least 51 stars from areas outside the castle's upper levels,
 you'd run
@@ -199,7 +199,7 @@ STAR_ID = []
 ```
 
 where the array on the right-hand side of the assignment can contain
-times (in seconds) as integers or decimal numbers. For example, we can
+times (in seconds) as integers or decimal numbers. For example, you can
 add three times for the fifth star on Lethal Lava Land "Hot-Foot-It into
 the Volcano" by modify the array as follows:
 
