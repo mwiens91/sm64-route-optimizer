@@ -85,16 +85,10 @@ def main() -> None:
     # random route if we were asked to do so; otherwise generate an
     # optimal route.
     if args.generate_fake_route:
-        # Pick 70 random stars and generate a random time
-        num_stars_to_pick = min(NUM_STARS_IN_ROUTE, len(star_times_dict))
-
-        time_center = 2700
-        time_spread = 50
-
-        route_star_ids_set, route_time = (
-            random.sample(list(star_times_dict.keys()), num_stars_to_pick),
-            random.uniform(time_center - time_spread, time_center + time_spread),
+        route_star_ids_set = random.sample(
+            list(star_times_dict.keys()), NUM_STARS_IN_ROUTE
         )
+        route_time = sum(star_times_dict[star_id] for star_id in route_star_ids_set)
     else:
         logger.info(
             "Finding optimal route. This should take a few seconds—no longer than a few minutes.",
