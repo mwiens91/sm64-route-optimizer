@@ -341,7 +341,8 @@ or its 100 coin combined star alternative, if it exists.
 
 In the second step, we sort all eligible stars for the route in
 ascending order of their time. We also initialize a min-heap, initially
-empty, which is ordered by star count requirement.
+empty, ordered primarily by star count requirement and secondarily by
+time.
 
 We start iterating at the first index of the sorted stars array. If the
 first star is a special star or is excluded from the route, we skip
